@@ -15,9 +15,9 @@ if __name__ == '__main__':
     ax.plot_esfera( x,y1, color=c, markersize=8, label=c)
 
   # Plot a simple "standard" line
-  plt.plot(x,2+(.5+x)*y/(1+x)**2,'-k',lw=3, label='Line 1')
+  ax.plot(x,2+(.5+x)*y/(1+x)**2,'-k',lw=3, label='Line 1')
   # 
-  plt.legend(loc='best', numpoints=1)
+  ax.legend(loc='best', numpoints=1)
   plt.savefig('resources/simple_example_2.png')
   plt.show()
 
