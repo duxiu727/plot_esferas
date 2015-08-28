@@ -20,7 +20,6 @@ A picture is worth a thousand ...
 
 How to use it?
 ==============
-
 .. code:: python
           
   import numpy as np 
