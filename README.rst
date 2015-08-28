@@ -10,5 +10,15 @@ I put this together for an easier use in a small function and added it as a meth
 
 I am sure that there is many better ways to obtain the same result, and I'll be *really* very glad to learn about it.
 
+What does it do?
+================
+
+A picture is worth a thousand ...
+
+.. image:: resources/simple_example_1.png
 
 
+How to use it?
+==============
+
+.. include:: simple_example_2.py
