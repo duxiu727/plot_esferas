@@ -8,7 +8,17 @@ http://matplotlib.1069221.n5.nabble.com/custom-markers-from-images-tp4166p4173.h
 
 I put this together for an easier use in a small function and added it as a method to matplotlib Axes, and I am sharing it in case somebody else finds it useful.
 
-I am sure that there is many better ways to obtain the same result, and I'll be *really* very glad to learn about it.
+I am sure that there are many better ways to obtain the same result, and I'll be *really* very glad to learn about it.
+
+What does it do?
+================
+
+A picture is worth a thousand ...
+
+.. image:: resources/simple_example_1.png
 
 
+How to use it?
+==============
 
+.. include:: simple_example_2.py
