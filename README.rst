@@ -20,5 +20,6 @@ A picture is worth a thousand ...
 
 How to use it?
 ==============
-
+.. code:: python
+          
 .. include:: simple_example_2.py
