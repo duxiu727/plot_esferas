@@ -23,6 +23,7 @@ A picture is worth a thousand ...
 How to use it?
 ==============
 .. code:: python
+
   import numpy as np 
   import matplotlib.pyplot as plt
   import plt_esfera
@@ -45,3 +46,7 @@ How to use it?
   plt.show()
           
  
+Does it need improving?
+=======================
+
+Yes, it would be really nice to have the spheres in the legend.
