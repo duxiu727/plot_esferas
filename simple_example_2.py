@@ -19,6 +19,6 @@ if __name__ == '__main__':
   ax.plot(x,2+(.5+x)*y/(1+x)**2,'-k',lw=3, label='Line 1')
   # 
   ax.legend(loc='best', numpoints=1)
-  plt.savefig('resources/simple_example_2.png')
+  plt.savefig('resources/simple_example.png', dpi=72)
   plt.show()
 

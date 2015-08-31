@@ -19,6 +19,10 @@ A picture is worth a thousand ...
 
 .. image:: resources/simple_example.png
 
+and two 2000 ...
+
+.. image:: resources/simple_example_1.png
+
 
 How to use it?
 ==============

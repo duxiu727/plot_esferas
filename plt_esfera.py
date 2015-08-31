@@ -45,17 +45,30 @@ def plot_esfera(ax, x, y, label=None, **kwargs):
       if cmap == v:
         color= k
 
+  alpha=1.0
+  if 'alpha' in kwargs:
+    alpha= kwargs['alpha']
+
+  origin= 'upper'
+  if 'invert' in kwargs:
+    if not kwargs['invert']: origin= False
+
   # Plot a circle of almost the same size below the curve.
   # This sets scales, labels, etc in the plot automatically using plot machinery
   # or at leat so I hope!
-  line, = ax.plot(x,y,"o",mfc=color, mec=color, markersize=.9*markersize, label=label)
+  if alpha < 0.9:
+    alpha_l=0.001
+  else:
+    alpha_l= alpha
+  line, = ax.plot(x,y,"o",mfc=color, mec=color, markersize=.5*markersize, label=label, alpha= alpha_l)
+
 
   # Read the image to plot
   zoom= 0.004*markersize
   img= plt.imread('sphere.png')
 
   if color == 'darkred':                  # Use original sphere
-    imagebox = OffsetImage(img, zoom=zoom)
+    imagebox = OffsetImage(img, zoom=zoom, alpha=alpha, origin=origin)
   else:                                   # Colorize the sphere
     lum_img=img[:,:,0]
     thresh= 1.e-9
@@ -64,7 +77,7 @@ def plot_esfera(ax, x, y, label=None, **kwargs):
     maximo= lum_img.max()
     lum_img[lum_img <= thresh] = np.nan # insert 'bad' values (the white)
     lum_img= maximo-lum_img
-    imagebox = OffsetImage(lum_img, zoom=zoom, cmap= my_cmap, origin='upper')
+    imagebox = OffsetImage(lum_img, zoom=zoom, cmap= my_cmap, alpha=alpha, origin=origin)
 
   for xy in zip(x,y):
     ab = AnnotationBbox(imagebox, xy, xycoords='data', pad=0.1, frameon=False)
