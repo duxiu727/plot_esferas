@@ -23,13 +23,17 @@ and then two: 2000 ...
 
 .. image:: resources/simple_example_1.png
 
+Changing the style looks nice too ...
+
+.. image:: resources/simple_example_2.png
+           
 
 How to use it?
 ==============
 
 The use it is pretty simple. Just call the method: `ax.plot_esfera`
 
-There are two scripts showing how to use it ``simple_example_1.py`` and ``simple_example_2.py``, that reads:
+There are two scripts showing how to use it ``simple_example_1.py`` and ``simple_example_2.py``. They are something similar to this:
 
 .. code:: python
 
@@ -58,4 +62,4 @@ There are two scripts showing how to use it ``simple_example_1.py`` and ``simple
 Does it need improving?
 =======================
 
-Yes, it would be really nice to have the spheres in the legend.
+Yes, they are several unresolved issues. Foremost, it would be really nice to have the spheres appearing (atutomatically) in the legend when using labels. Currently a circle with a similar color will be shown.

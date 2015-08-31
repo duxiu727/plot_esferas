@@ -5,12 +5,13 @@ from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 import copy
 from make_cmap import make_cmap
 
+cmap_yellow = make_cmap([(248,255,0),(187,180,120),(184,146,14)], position=[0,0.9,1], bit=True)
 colores= {'g': 'Greens', 'green': 'Greens',          
           'k': 'Greys', 'black': 'Greys',
+          'w': 'Greys_r', 'white': 'Greys_r',
           'r': 'Reds', 'red': 'Reds',
           'b': 'Blues', 'blue': 'Blues',
-          # 'yellow': make_cmap([(248,255,0),(187,180,120)], position=[0,1], bit=True),
-          'yellow': make_cmap([(248,255,0),(187,180,120),(184,146,14)], position=[0,0.9,1], bit=True),
+          'y': cmap_yellow, 'yellow': cmap_yellow,
           'orange': 'Oranges',
           'seagreen': 'BuGn',
           'darkturquoise': 'GnBu',
@@ -21,8 +22,80 @@ colores= {'g': 'Greens', 'green': 'Greens',
           'darkred': None
           }
 
-def plot_esfera(ax, x, y, label=None, **kwargs):
-  """Plot a curve with yellow spheres"""
+# def plot_esfera(ax, x, y, label=None, **kwargs):
+def plot_esfera(ax, x, y, **kwargs):
+  """Plot spheres (balls) mimicking 3D objects to the
+  :class:`~matplotlib.axes.Axes`. Both *x* and *y* are one-dimensional arrays.
+
+  Example of use::
+  
+  fig= plt.figure(figsize=(12,9))
+  ax= fig.add_subplot(111)
+
+  # As a method to the Axes object
+  ax.plot_esfera(x,y)
+
+  # As a function
+  plot_esfera(ax, x,y)
+
+  The *kwargs* can be used to set a few properties. Currently you can use this to set:
+  label (for auto legends), size, color, colormap, and orientation
+  Here are a few examples.
+
+  Color choices:
+
+    A few simple choices::
+  
+    # The next five lines are equivalent
+    ax.plot_esfera(x,y, c='r')                   # Color: red
+    ax.plot_esfera(x,y, color='r')               # Color: red
+    ax.plot_esfera(x,y, colour='r')              # Color: red
+    ax.plot_esfera(x,y, cmap='Reds')             # Color: red
+    ax.plot_esfera(x,y, c='r', cmap='Reds')      # Color: red
+  
+    The following color abbreviations are supported:
+      
+    ==========  ========
+    character   color
+    ==========  ========
+    'b'         blue
+    'g'         green
+    'r'         red
+    'y'         yellow
+    'k'         black
+    'w'         white  
+    ==========  ========
+  
+    The following (named) colors are currently supported:
+  
+    -  'orange'
+    -  'seagreen'
+    -  'darkturquoise'
+    -  'deeppink'
+    -  'fuchsia'
+    -  'purple'
+    -  'blueviolet'
+    -  'darkred'
+
+  Colormap Choices:
+
+    All Matplotlib *colormaps* are available. A few examples::
+    
+      ax.plot_esfera(x,y, cmap='Reds') 
+      ax.plot_esfera(x,y, cmap='hot')  
+      ax.plot_esfera(x,y, cmap='jet')  
+      ax.plot_esfera(x,y, cmap='jet_r')
+  
+    To see all options, just run the module::
+  
+      python plt_esfera.py
+  
+  Size:
+    markersize or ms:  float (approximately the same size that circular markers)
+
+  invert: [True | False]                             - defaul: False
+  alpha: float (0.0 transparent through 1.0 opaque)  - default: 1.0
+  """
   markersize= 6
   for ms in ['markersize','ms']:
     if ms in kwargs:
@@ -52,6 +125,8 @@ def plot_esfera(ax, x, y, label=None, **kwargs):
   origin= 'upper'
   if 'invert' in kwargs:
     if not kwargs['invert']: origin= False
+
+  label= kwargs.get('label',None)
 
   # Plot a circle of almost the same size below the curve.
   # This sets scales, labels, etc in the plot automatically using plot machinery
@@ -109,18 +184,13 @@ if __name__ == '__main__':
   y= .5*(1.1+ np.sin(x)/(.01+x))
   y1= y+2*len(cmaps[0:1])
   c= None
-  for maps in cmaps[0:1]:
+  for maps in cmaps[0:2]:
     fig= plt.figure(num=maps[0], figsize=(7,9))
     ax= fig.add_subplot(111, aspect='auto')
     for cmap in maps[1]:
       ax.plot_esfera( x,y1, color=c, ms=ms, label=cmap, cmap=cmap)      
       y1-=.9
-
-  # Plot a simple "standard" line
-  ax.plot(x,2+(.5+x)*y/(1+x)**2,'-k',lw=3, label='Line 1')
-  # 
-  ax.legend(loc='best', numpoints=1)
-  # plt.savefig('resources/simple_example_2.png')
+    ax.legend(loc='best', numpoints=1)
   plt.show()
 
   
