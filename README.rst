@@ -19,13 +19,18 @@ A picture is worth a thousand ...
 
 .. image:: resources/simple_example.png
 
-and two 2000 ...
+and then two: 2000 ...
 
 .. image:: resources/simple_example_1.png
 
 
 How to use it?
 ==============
+
+The use it is pretty simple. Just call the method: `ax.plot_esfera`
+
+There are two scripts showing how to use it ``simple_example_1.py`` and ``simple_example_2.py``, that reads:
+
 .. code:: python
 
   import numpy as np 
