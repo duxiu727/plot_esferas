@@ -2,13 +2,16 @@
  plot_esferas
 ==============
 
-This is a short hack to use spheres as markers in matplotlib plot.
+This is a short hack to use spheres as markers in matplotlib scatter plots in python. The approach may be extended to use any arbitrary image as a marker.
+I mimicked some of the usual options of `plot()`.
+
+
 The main idea was borrowed/taken/(your-choice-of-words) from:
 http://matplotlib.1069221.n5.nabble.com/custom-markers-from-images-tp4166p4173.html
 
 The "new" colormap for yellow spheres is from http://schubert.atmos.colostate.edu/~cslocum/custom_cmap.html
 
-I put this together in a small function for an easy use and added it as a method to matplotlib Axes. I am sharing it in case somebody else finds it useful.
+I put this together in a small function for  easy use, and added it as a method to matplotlib Axes. I am sharing it in case somebody else finds it useful.
 
 I am sure that there are many better ways to obtain the same result, and I'll be **really** very glad to learn about them.
 
