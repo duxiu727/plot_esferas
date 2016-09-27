@@ -21,5 +21,6 @@ if __name__ == '__main__':
   # 
   ax.legend(loc='best', numpoints=1)
   plt.savefig('resources/simple_example_2.png', dpi=72)
+  # plt.savefig('resources/simple_example_400.png', dpi=200)
   plt.show()
 
