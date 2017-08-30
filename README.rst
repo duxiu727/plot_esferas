@@ -66,3 +66,5 @@ Does it need improving?
 =======================
 
 Yes, they are several unresolved issues. Foremost, it would be really nice to have the spheres appearing (atutomatically) in the legend when using labels. Currently a circle with a similar color will be shown.
+ 
+If you have suggestions/comments please contact me. 
